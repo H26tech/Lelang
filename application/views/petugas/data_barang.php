@@ -24,20 +24,13 @@
 
             <label for="gambar">Gambar:</label>
             <input type="file" name="gambar" required>
-
             <!-- <label for="history">History:</label>
             <textarea name="history"><?php echo set_value('history'); ?></textarea> -->
-
             <button type="submit">Submit</button>
-
             <?php echo form_close(); ?>
-
-
             <div class="card">
                 <div class="card-body">
-
                     <h4 class="card-title">Input barang</h4>
-
                     <div class="mb-3 row">
                         <label for="nama_barang" class="col-md-2 col-form-label">Nama Barang</label>
                         <div class="col-md-10">
@@ -78,7 +71,7 @@
                             </select>
                         </div>
                     </div><!-- end row -->
-                    
+
                 </div>
             </div>
             <!-- End Form Section -->
