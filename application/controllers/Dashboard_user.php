@@ -40,22 +40,35 @@ class Dashboard_user extends CI_Controller
     {
         // Pastikan form method POST
         if ($this->input->post()) {
-            $data = array(
-                'id_barang' => $this->input->post('id_barang'), // Ambil id_barang dari form
-                'id_user' => $this->session->userdata('user_id'), // Ambil id_user dari session
-                'bid_amount' => $this->input->post('bid_amount'), // Ambil nominal_bid dari form
-                // Tambahkan kolom lain jika perlu
-            );
+            $id_barang = $this->input->post('id_barang');
+            $bid_amount = $this->input->post('bid_amount');
+            $id_user = $this->session->userdata('user_id');
 
-            // Panggil metode submit_bid dari Bid_model
-            if ($this->Bid_model->submit_bid($data)) {
-                // Berhasil
-                $this->session->set_flashdata('message', 'Tawaran berhasil diajukan.');
-                redirect('dashboard_user'); // Redirect ke halaman yang diinginkan
+            // Periksa apakah sudah ada bid dengan nominal yang sama
+            if ($this->Bid_model->is_bid_exists($id_barang, $bid_amount)) {
+                // Jika bid sudah ada, tampilkan pesan error
+                $this->session->set_flashdata('message', 'Bid dengan nominal yang sama sudah ada.');
             } else {
-                // Gagal
-                $this->session->set_flashdata('message', 'Gagal mengajukan tawaran.');
+                // Jika tidak ada bid yang sama, submit bid
+                $data = array(
+                    'id_barang' => $id_barang,
+                    'id_user' => $id_user,
+                    'bid_amount' => $bid_amount,
+                    // Tambahkan kolom lain jika perlu
+                );
+
+                // Panggil metode submit_bid dari Bid_model
+                if ($this->Bid_model->submit_bid($data)) {
+                    // Berhasil
+                    $this->session->set_flashdata('message', 'Tawaran berhasil diajukan.');
+                } else {
+                    // Gagal
+                    $this->session->set_flashdata('message', 'Gagal mengajukan tawaran.');
+                }
             }
+
+            // Redirect kembali ke halaman detail barang agar tetap di halaman yang sama
+            redirect('dashboard_user/detail_barang/' . $id_barang);
         }
 
         // Reload atau tampilkan halaman jika tidak ada POST

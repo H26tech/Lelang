@@ -58,7 +58,7 @@ class Lelang extends CI_Controller
         }
     }
     public function data_pemenang()
-    {
+    {   
         $this->load->model('Lelang_model');
         $data['posts'] = $this->Lelang_model->getAllPostsWithBids();
         $this->load->view('templates/header'); // Re-load the form on validation error
