@@ -13,6 +13,13 @@
                         <p class="card-text">Tanggal Selesai: <?php echo date('d-m-Y', strtotime($barang['tanggal_selesai'])); ?></p>
                         <p class="card-text">Bid Tertinggi Saat Ini: Rp <?php echo isset($highest_bid['bid_amount']) ? number_format($highest_bid['bid_amount'], 0, ',', '.') : 'Belum ada bid'; ?></p>
 
+                        <!-- Notification Section -->
+                        <?php if ($this->session->flashdata('message')): ?>
+                            <div class="alert alert-info" role="alert">
+                                <?php echo $this->session->flashdata('message'); ?>
+                            </div>
+                        <?php endif; ?>
+
                         <!-- Bid Form -->
                         <h5>Masukkan Tawaran Anda</h5>
                         <form method="post" action="<?php echo base_url('dashboard_user/submit_bid'); ?>">

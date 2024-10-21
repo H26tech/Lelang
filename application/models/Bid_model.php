@@ -32,8 +32,23 @@ class Bid_model extends CI_Model
         $query = $this->db->get('tb_bid');
         return $query->result_array();  // Mengembalikan semua bid pada barang terkait
     }
+    // Fungsi untuk mengecek apakah bid dengan nominal yang sama sudah ada
+    public function is_bid_exists($id_barang, $bid_amount)
+    {
+        $this->db->where('id_barang', $id_barang);
+        $this->db->where('bid_amount', $bid_amount);
+        $query = $this->db->get('tb_bid'); // Asumsi tabel bid bernama tb_bid
+
+        if ($query->num_rows() > 0) {
+            return true; // Bid dengan nominal yang sama sudah ada
+        }
+
+        return false; // Tidak ada bid dengan nominal yang sama
+    }
+
+    // Fungsi untuk submit bid
     public function submit_bid($data)
     {
-        return $this->db->insert('tb_bid', $data);
+        return $this->db->insert('tb_bid', $data); // Asumsi tabel bid bernama tb_bid
     }
 }
