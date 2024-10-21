@@ -47,6 +47,12 @@ class Petugas_model extends CI_Model
         return $this->db->affected_rows();  // Kembalikan hasil dari insert, berapa baris yang terpengaruh
     }
 
+    public function hapus_barang($id_barang)
+    {
+        $this->db->where('id_barang', $id_barang);
+        $this->db->delete('barang'); // 'barang' adalah nama tabel di database
+    }
+
     // Hapus barang berdasarkan id_barang
     public function delete_barang($id_barang)
     {

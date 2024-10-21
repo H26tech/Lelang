@@ -27,6 +27,9 @@
                                 <td><?php echo ucfirst($item['status']); ?></td>
                                 <td>
                                     <a href="<?php echo base_url('dashboard_petugas/edit_barang/' . $item['id_barang']); ?>" class="btn btn-warning">Edit</a>
+                                    <a href="<?php echo base_url('dashboard_petugas/hapus_barang/' . $item['id_barang']); ?>"
+                                        class="btn btn-danger"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?');">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

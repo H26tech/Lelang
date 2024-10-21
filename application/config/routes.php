@@ -64,6 +64,8 @@ $route['admin/dashboard'] = 'Dashboard_admin';  // Admin
 
 $route['auth/register_admin'] = 'dashboard_admin/register_akun';
 $route['admin/list_akun'] = 'dashboard_admin/list_akun';
+$route['dashboard_admin/delete_user/(:num)'] = 'dashboard_admin/delete_user/$1';
+$route['dashboard_admin/edit_user/(:num)'] = 'dashboard_admin/edit_user/$1';
 
 $route['auth/logout'] = 'Auth/logout'; // atau sesuai dengan nama controller dan fungsi yang Anda gunakan
 
