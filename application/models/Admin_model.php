@@ -48,4 +48,31 @@ class Admin_model extends CI_Model
     {
         return $this->db->delete('tb_petugas', ['id_petugas' => $id]);
     }
+
+    // Ambil semua akun user dari tb_masyarakat
+    public function get_all_users()
+    {
+        $this->db->select('id_user, nama_lengkap, username, telp');
+        $this->db->from('tb_masyarakat');
+        $query = $this->db->get();
+        return $query->result(); // Mengembalikan hasil dalam bentuk array objek
+    }
+    // Hapus akun user dari tb_masyarakat
+    public function delete_user($id)
+    {
+        return $this->db->delete('tb_masyarakat', ['id_user' => $id]);
+    }
+
+    // Ambil data user berdasarkan id_user
+    public function get_user_by_id($id)
+    {
+        return $this->db->get_where('tb_masyarakat', ['id_user' => $id])->row();
+    }
+
+    // Update data user berdasarkan id_user
+    public function update_user($id, $data)
+    {
+        $this->db->where('id_user', $id);
+        return $this->db->update('tb_masyarakat', $data);
+    }
 }

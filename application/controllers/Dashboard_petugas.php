@@ -27,7 +27,7 @@ class Dashboard_petugas extends CI_Controller
             show_404(); // Jika barang tidak ditemukan, tampilkan halaman 404
         }
 
-        // Load view untuk form edit barang
+        // Load view untuk form edit barang0
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('petugas/edit_barang', $data);
@@ -70,5 +70,19 @@ class Dashboard_petugas extends CI_Controller
         $this->load->view('templates/sidebar');
         $this->load->view('petugas/data_lelang', $data);
         $this->load->view('templates/footer');
+    }
+    public function hapus_barang($id_barang)
+    {
+        // Pastikan model sudah ter-load di controller
+        $this->load->model('Petugas_model');
+
+        // Jalankan fungsi hapus di model
+        $this->Petugas_model->hapus_barang($id_barang);
+
+        // Set flashdata untuk notifikasi berhasil
+        $this->session->set_flashdata('message', 'Barang berhasil dihapus.');
+
+        // Redirect kembali ke halaman utama
+        redirect('dashboard_petugas');
     }
 }
