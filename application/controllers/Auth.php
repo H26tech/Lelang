@@ -45,7 +45,7 @@ class Auth extends CI_Controller
                     // Password cocok, set session
                     $this->session->set_userdata([
                         'user_type' => 'user',
-                        'username' => $user->username,
+                        'nama_lengkap' => $user->nama_lengkap,
                         'user_id' => $user->id_user
                     ]);
 
@@ -61,7 +61,7 @@ class Auth extends CI_Controller
                     // Password cocok, set session sesuai level
                     $this->session->set_userdata([
                         'user_id' => $petugas->id_petugas,
-                        'username' => $petugas->username,
+                        'nama_petugas' => $petugas->nama_petugas,
                     ]);
 
                     if ($petugas->id_level == 1) {
