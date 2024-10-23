@@ -20,7 +20,7 @@
                                         <li class="breadcrumb-item active">Dashboard</li>
                                     </ol>
                                 </div>
-                                <h1>Welcome, <?php echo $this->session->userdata('username'); ?>! You are logged in as <?php echo $this->session->userdata('user_type'); ?>.</h1>
+                                <h1>Welcome, <?php echo $this->session->userdata('nama_petugas'); ?>! You are logged in as <?php echo $this->session->userdata('user_type'); ?>.</h1>
                             </div>
                         </div>
                         <!-- end page title -->
