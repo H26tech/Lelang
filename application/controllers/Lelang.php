@@ -58,12 +58,19 @@ class Lelang extends CI_Controller
         }
     }
     public function data_pemenang()
-    {   
+    {
         $this->load->model('Lelang_model');
-        $data['posts'] = $this->Lelang_model->getAllPostsWithBids();
-        $this->load->view('templates/header'); // Re-load the form on validation error
-        $this->load->view('templates/sidebar'); // Re-load the form on validation error
+        $posts = $this->Lelang_model->getAllPostsWithBids();
+
+        // Group the posts by 'nama_barang'
+        $data['grouped_posts'] = [];
+        foreach ($posts as $post) {
+            $data['grouped_posts'][$post['nama_barang']][] = $post;
+        }
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
         $this->load->view('petugas/data_pemenang', $data);
-        $this->load->view('templates/footer'); // Re-load the form on validation error
+        $this->load->view('templates/footer');
     }
 }
