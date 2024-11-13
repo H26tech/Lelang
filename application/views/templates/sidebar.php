@@ -59,7 +59,7 @@
                         <a href="<?php echo base_url('Dashboard_admin/list_akun'); ?>" class="waves-effect">
                             <i class="mdi mdi-chat-processing-outline"></i>
                             <span class="badge rounded-pill bg-danger float-end">Hot</span>
-                            <span>Data Petugas dan admin</span>
+                            <span>Data Akun</span>
                         </a>
                     </li>
                 <?php endif; ?>

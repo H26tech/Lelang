@@ -1,8 +1,14 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
+
             <h2>Data Pemenang Lelang</h2>
-            
+            <form class="app-search d-none d-lg-block">
+                <div class="position-relative">
+                    <input type="text" class="form-control" placeholder="Search..." fdprocessedid="osv459">
+                    <span class="fa fa-search"></span>
+                </div>
+            </form>
             <?php foreach ($grouped_posts as $nama_barang => $bids) { ?>
                 <h4 class="mt-4"><?= htmlspecialchars($nama_barang); ?></h4> <!-- Display the item name -->
                 <div class="card">
@@ -34,7 +40,6 @@
         </div>
     </div>
 </div>
-
 <script>
     $(document).ready(function() {
         // Initialize DataTables for each item table
@@ -45,9 +50,13 @@
                 buttons: [
                     'copy', 'excel', 'pdf', 'print'
                 ],
-                order: [[2, 'asc']], // Sort by the "Jumlah Bid" column (index 2) in ascending order
-                columnDefs: [
-                    { orderDataType: 'dom-text', targets: 2 } // Use custom sorting for number formatting
+                order: [
+                    [2, 'asc']
+                ], // Sort by the "Jumlah Bid" column (index 2) in ascending order
+                columnDefs: [{
+                        orderDataType: 'dom-text',
+                        targets: 2
+                    } // Use custom sorting for number formatting
                 ],
                 language: {
                     search: "Search:",
