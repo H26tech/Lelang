@@ -127,9 +127,8 @@
                             <div class="page-title-box">
                                 <h4>Dashboard</h4>
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Lexa</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Dashboard</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Login</a></li>
+                                    <li class="breadcrumb-item active"><a href="javascript: void(0);">Dashboard</a></li>
                                 </ol>
                             </div>
                             <h1>Welcome, <?php echo $this->session->userdata('nama_lengkap'); ?>! You are logged in as <?php echo $this->session->userdata('user_type'); ?>.</h1>

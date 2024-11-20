@@ -60,13 +60,7 @@ class Lelang extends CI_Controller
     public function data_pemenang()
     {
         $this->load->model('Lelang_model');
-        $posts = $this->Lelang_model->getAllPostsWithBids();
-
-        // Group the posts by 'nama_barang'
-        $data['grouped_posts'] = [];
-        foreach ($posts as $post) {
-            $data['grouped_posts'][$post['nama_barang']][] = $post;
-        }
+        $data['winners'] = $this->Lelang_model->getAllPostsWithBids();
 
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');

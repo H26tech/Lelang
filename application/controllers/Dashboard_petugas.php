@@ -8,15 +8,22 @@ class Dashboard_petugas extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Petugas_model'); // Ganti dengan Petugas_model
+        $this->load->model('Lelang_model'); // Ganti dengan Petugas_model
         $this->load->library('form_validation'); // Form validation
     }
     public function index()
     {
+        $data['total_barang'] = $this->Lelang_model->countTotalBarang();
+        $data['status_terbuka'] = $this->Lelang_model->countStatusTerbuka();
+        $data['status_tertutup'] = $this->Lelang_model->countStatusTertutup();
+        $data['total_peserta_bid'] = $this->Lelang_model->countTotalPesertaBid();
+
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('petugas/dashboard');
+        $this->load->view('petugas/dashboard', $data); // Kirim $data ke view
         $this->load->view('templates/footer');
     }
+
     // Function untuk menampilkan form edit barang
     public function edit_barang($id_barang)
     {
