@@ -29,7 +29,8 @@
                                         <td><?= htmlspecialchars($winner['nama_barang']); ?></td>
                                         <td><?= htmlspecialchars($winner['winner_name']); ?></td>
                                         <td><?= htmlspecialchars($winner['winner_phone']); ?></td>
-                                        <td><?= number_format($winner['highest_bid'], 2); ?></td>
+                                        <!-- Format Jumlah Bid Tertinggi ke Rupiah -->
+                                        <td><?= 'Rp ' . number_format($winner['highest_bid'], 0, ',', '.'); ?></td>
                                         <td><?= htmlspecialchars($winner['total_bidders']); ?></td>
                                     </tr>
                                 <?php } ?>
@@ -49,7 +50,9 @@
             responsive: true,
             dom: 'Bfrtip',
             buttons: ['copy', 'excel', 'pdf', 'print'],
-            order: [[3, 'desc']],
+            order: [
+                [3, 'desc']
+            ],
             language: {
                 search: "Search:",
                 lengthMenu: "Display _MENU_ records per page",

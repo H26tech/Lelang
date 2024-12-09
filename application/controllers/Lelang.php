@@ -8,6 +8,10 @@ class Lelang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Lelang_model'); // Using the Lelang_model
+        // Periksa apakah pengguna sudah login
+        if (!$this->session->userdata('user_id')) {
+            redirect('auth/login'); // Redirect ke halaman login
+        }
     }
 
     // Method to load the form for adding barang
@@ -28,6 +32,7 @@ class Lelang extends CI_Controller
         $this->form_validation->set_rules('tanggal_mulai', 'Tanggal Mulai', 'required');
         $this->form_validation->set_rules('tanggal_selesai', 'Tanggal Selesai', 'required');
         $this->form_validation->set_rules('harga_awal', 'Harga Awal', 'required|numeric');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('petugas/data_barang'); // Re-load the form on validation error
@@ -49,7 +54,7 @@ class Lelang extends CI_Controller
                     'harga_awal' => $this->input->post('harga_awal'),
                     'status' => $this->input->post('status'),
                     'gambar' => $this->upload->data('file_name'),
-                    'history' => $this->input->post('history')
+                    'deskripsi' => $this->input->post('deskripsi')
                 );
 
                 $this->Lelang_model->insert_barang($data);

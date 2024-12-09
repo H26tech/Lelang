@@ -10,6 +10,10 @@ class Dashboard_petugas extends CI_Controller
         $this->load->model('Petugas_model'); // Ganti dengan Petugas_model
         $this->load->model('Lelang_model'); // Ganti dengan Petugas_model
         $this->load->library('form_validation'); // Form validation
+        // Periksa apakah pengguna sudah login
+        if (!$this->session->userdata('user_id')) {
+            redirect('auth/login'); // Redirect ke halaman login
+        }
     }
     public function index()
     {
@@ -48,6 +52,7 @@ class Dashboard_petugas extends CI_Controller
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
         $this->form_validation->set_rules('harga_awal', 'Harga Awal', 'required|numeric');
         $this->form_validation->set_rules('status', 'Status', 'required');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->edit_barang($id_barang);
@@ -56,6 +61,7 @@ class Dashboard_petugas extends CI_Controller
                 'nama_barang' => $this->input->post('nama_barang'),
                 'harga_awal' => $this->input->post('harga_awal'),
                 'status' => $this->input->post('status'),
+                'deskripsi' => $this->input->post('deskripsi'),
             );
 
             // Jika ada file yang diupload

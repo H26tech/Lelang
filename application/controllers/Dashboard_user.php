@@ -8,6 +8,8 @@ class Dashboard_user extends CI_Controller
         parent::__construct();
         $this->load->model('Lelang_model'); // Load Lelang_model
         $this->load->model('Bid_model'); // Load Bid_model for handling bids
+        $this->load->model('User_model'); // Load Bid_model for handling bids
+        
     }
 
     public function index()
@@ -73,5 +75,26 @@ class Dashboard_user extends CI_Controller
 
         // Reload atau tampilkan halaman jika tidak ada POST
         redirect('dashboard_user');
+    }
+    // Menampilkan riwayat bid pengguna berdasarkan ID pengguna
+    public function history()
+    {
+        // Mengambil user_id dari session
+        $user_id = $this->session->userdata('user_id');
+
+        // Cek apakah user_id ada
+        if (!$user_id) {
+            // Jika tidak ada, redirect ke login atau halaman error
+            redirect('login');
+        }
+
+        // Ambil riwayat bid berdasarkan ID pengguna
+        $data['history'] = $this->User_model->getUserBidHistory($user_id);
+
+        // Load views untuk menampilkan riwayat bid
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar_user');
+        $this->load->view('user/history_view', $data); // Menggunakan view history_view
+        $this->load->view('templates/footer');
     }
 }

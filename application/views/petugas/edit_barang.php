@@ -33,6 +33,12 @@
                         <?php endif; ?>
                     </div>
 
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea name="deskripsi" class="form-control" rows="4" required><?php echo $barang['deskripsi']; ?></textarea>
+                    </div>
+
+
                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 </form>
 

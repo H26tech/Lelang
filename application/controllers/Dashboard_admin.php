@@ -10,20 +10,34 @@ class Dashboard_admin extends CI_Controller
         $this->load->library('form_validation'); // Load form validation library
         $this->load->helper('url'); // Load URL helper for redirects
         $this->load->library('session'); // Load session library for flashdata
+        // Periksa apakah pengguna sudah login
+        if (!$this->session->userdata('user_id')) {
+            redirect('auth/login'); // Redirect ke halaman login
+        }
     }
 
     // Main dashboard view
     public function index()
     {
-        $this->load->view('templates/header');   // Load header
-        $this->load->view('templates/sidebar');  // Load sidebar
-        $this->load->view('admin/dashboard');    // Load main dashboard view
-        $this->load->view('templates/footer');   // Load footer
+
+        // Jika login, lanjutkan proses
+        $data['jumlah_user'] = $this->Admin_model->countUsers();
+        $data['jumlah_admin'] = $this->Admin_model->countAdmins();
+        $data['jumlah_petugas'] = $this->Admin_model->countPetugas();
+        $data['jumlah_barang'] = $this->Admin_model->countBarang();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('admin/dashboard');
+        $this->load->view('templates/footer');
     }
+
 
     // Register form for admin or petugas
     public function register_akun()
     {
+        // Periksa apakah pengguna sudah login
+       
         $data['levels'] = $this->Admin_model->get_levels(); // Fetch levels from the database
 
         // Set form validation rules

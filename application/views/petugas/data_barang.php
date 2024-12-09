@@ -50,6 +50,14 @@
                             <input class="form-control" type="file" name="gambar" required>
                         </div>
                     </div><!-- end row -->
+                    
+                    <div class="mb-3 row">
+                        <label for="deskripsi" class="col-md-2 col-form-label">Deskripsi</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="deskripsi" required><?php echo set_value('deskripsi'); ?></textarea>
+                        </div>
+                    </div><!-- end row -->
+
 
                     <div class="mb-3 row">
                         <div class="col-md-10 offset-md-2">

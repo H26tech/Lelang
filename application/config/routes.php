@@ -82,6 +82,15 @@ $route['petugas/data_lelang'] = 'Dashboard_petugas/data_lelang';
 $route['dashboard_petugas/edit_barang/(:num)'] = 'Dashboard_petugas/edit_barang/$1';
 $route['dashboard_petugas/update_barang/(:num)'] = 'Dashboard_petugas/update_barang/$1';
 $route['petugas/data_pemenang'] = 'lelang/data_pemenang';
+// laporan
+$route['petugas/laporan'] = 'Laporan';
+$route['Laporan/detail/(:num)'] = 'Laporan/detail/$1';
+$route['Laporan/full_detail'] = 'Laporan/full_detail';
+
+
+
+
 
 // user
 $route['dashboard_user/detail_barang/(:num)'] = 'Dashboard_user/detail_barang/$1';
+$route['dashboard_user/history/(:num)'] = 'dashboard_user/history/$1';

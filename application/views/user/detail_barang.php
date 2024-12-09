@@ -13,6 +13,10 @@
                         <p class="card-text">Tanggal Selesai: <?php echo date('d-m-Y', strtotime($barang['tanggal_selesai'])); ?></p>
                         <p class="card-text">Bid Tertinggi Saat Ini: Rp <?php echo isset($highest_bid['bid_amount']) ? number_format($highest_bid['bid_amount'], 0, ',', '.') : 'Belum ada bid'; ?></p>
 
+                        <!-- Display Deskripsi -->
+                        <p class="card-text"><strong>Deskripsi:</strong></p>
+                        <p class="card-text"><?php echo nl2br($barang['deskripsi']); ?></p>
+
                         <!-- Notification Section -->
                         <?php if ($this->session->flashdata('message')): ?>
                             <div class="alert alert-info" role="alert">

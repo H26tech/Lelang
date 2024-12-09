@@ -4,7 +4,6 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
-
             <!-- start page title -->
             <div class="row">
                 <div class="col-sm-6">
@@ -19,9 +18,9 @@
                 </div>
             </div>
             <!-- end page title -->
-
             <div class="row">
-                <div class="col-xl-3 col-sm-6">
+                <!-- Jumlah Akun User -->
+                <!-- <div class="col-xl-3 col-sm-6">
                     <div class="card mini-stat bg-primary">
                         <div class="card-body mini-stat-img">
                             <div class="mini-stat-icon">
@@ -29,53 +28,56 @@
                             </div>
                             <div class="text-white">
                                 <h6 class="text-uppercase mb-3 font-size-16 text-white">Jumlah Akun User</h6>
-                                <h2 class="mb-4 text-white">1,587</h2>
-                                <span class="badge bg-info"> +11% </span> <span class="ms-2">From previous period</span>
+                                <h2 class="mb-4 text-white"><?= isset($jumlah_user) ? $jumlah_user : 'Data Tidak Tersedia'; ?></h2>
+                                
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
+                </div> -->
+                <!-- Jumlah Akun Admin -->
+                <!-- <div class="col-xl-3 col-sm-6">
                     <div class="card mini-stat bg-primary">
                         <div class="card-body mini-stat-img">
                             <div class="mini-stat-icon">
                                 <i class="mdi mdi-buffer float-end"></i>
                             </div>
                             <div class="text-white">
-                                <h6 class="text-uppercase mb-3 font-size-16 text-white">Data barang</h6>
-                                <h2 class="mb-4 text-white">$46,782</h2>
-                                <span class="badge bg-danger"> -29% </span> <span class="ms-2">From previous period</span>
+                                <h6 class="text-uppercase mb-3 font-size-16 text-white">Jumlah Akun Admin</h6>
+                                <h2 class="mb-4 text-white"><?= isset($jumlah_user) ? $jumlah_user : 'Data Tidak Tersedia'; ?></h2>
+                                
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
+                </div> -->
+                <!-- Jumlah Akun Petugas -->
+                <!-- <div class="col-xl-3 col-sm-6">
                     <div class="card mini-stat bg-primary">
                         <div class="card-body mini-stat-img">
                             <div class="mini-stat-icon">
                                 <i class="mdi mdi-tag-text-outline float-end"></i>
                             </div>
                             <div class="text-white">
-                                <h6 class="text-uppercase mb-3 font-size-16 text-white">Average Price</h6>
-                                <h2 class="mb-4 text-white">$15.9</h2>
-                                <span class="badge bg-warning"> 0% </span> <span class="ms-2">From previous period</span>
+                                <h6 class="text-uppercase mb-3 font-size-16 text-white">Jumlah Akun Petugas</h6>
+                                <h2 class="mb-4 text-white"><?= isset($jumlah_petugas) ? $jumlah_petugas : 'Data Tidak Tersedia'; ?></h2>
+                                
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
+                </div> -->
+                <!-- Jumlah Data Barang -->
+                <!-- <div class="col-xl-3 col-sm-6">
                     <div class="card mini-stat bg-primary">
                         <div class="card-body mini-stat-img">
                             <div class="mini-stat-icon">
                                 <i class="mdi mdi-briefcase-check float-end"></i>
                             </div>
                             <div class="text-white">
-                                <h6 class="text-uppercase mb-3 font-size-16 text-white">Product Sold</h6>
-                                <h2 class="mb-4 text-white">1890</h2>
-                                <span class="badge bg-info"> +89% </span> <span class="ms-2">From previous period</span>
+                                <h6 class="text-uppercase mb-3 font-size-16 text-white">Data Barang</h6>
+                                <h2 class="mb-4 text-white"><?= isset($jumlah_barang) ? $jumlah_barang : 'Data Tidak Tersedia'; ?></h2>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- end row -->

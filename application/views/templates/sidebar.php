@@ -26,7 +26,7 @@
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="<?php echo base_url('auth/register_admin'); ?>">Admin</a></li>
-                            <li><a href="<?php echo base_url('auth/register_petugas'); ?>">Petugas</a></li>
+
                         </ul>
                     </li>
                 <?php endif; ?>
@@ -41,19 +41,13 @@
                 </li>
 
                 <li>
-                    <a href="<?= base_url('lelang/data_pemenang');?>" class="waves-effect">
+                    <a href="<?= base_url('lelang/data_pemenang'); ?>" class="waves-effect">
                         <i class="mdi mdi-billboard"></i>
                         <span class="badge rounded-pill bg-success float-end">New</span>
                         <span>Data Pemenang</span>
                     </a>
                 </li>
-                <li>
-                    <a href="<?= base_url('lelang/data_barang'); ?>" class="waves-effect">
-                        <i class="mdi mdi-billboard"></i>
-                        <span class="badge rounded-pill bg-success float-end">New</span>
-                        <span>Data Barang</span>
-                    </a>
-                </li>
+
                 <?php if ($this->session->userdata('user_type') == 'admin'): ?>
                     <li>
                         <a href="<?php echo base_url('Dashboard_admin/list_akun'); ?>" class="waves-effect">
@@ -65,7 +59,7 @@
                 <?php endif; ?>
                 <li class="menu-title">Laporan</li>
                 <li>
-                    <a href="chat.html" class="waves-effect">
+                    <a href="<?= base_url('petugas/laporan'); ?>" class="waves-effect">
                         <i class="mdi mdi-chat-processing-outline"></i>
                         <span class="badge rounded-pill bg-danger float-end">Hot</span>
                         <span>Laporan</span>

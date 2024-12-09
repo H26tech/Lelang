@@ -75,4 +75,25 @@ class Admin_model extends CI_Model
         $this->db->where('id_user', $id);
         return $this->db->update('tb_masyarakat', $data);
     }
+
+    // Menghitung jumlah akun user dari tabel tb_masyarakat
+    public function countUsers()
+    {
+        return $this->db->count_all('tb_masyarakat'); // Tabel tb_masyarakat
+    }
+
+    public function countAdmins()
+    {
+        return $this->db->where('id_level', 1)->count_all_results('tb_petugas'); // Tabel tb_petugas, admin: id_level = 1
+    }
+
+    public function countPetugas()
+    {
+        return $this->db->where('id_level', 2)->count_all_results('tb_petugas'); // Tabel tb_petugas, petugas: id_level = 2
+    }
+
+    public function countBarang()
+    {
+        return $this->db->count_all('barang'); // Tabel tb_barang
+    }
 }

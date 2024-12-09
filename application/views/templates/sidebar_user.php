@@ -18,21 +18,15 @@
                 </li>
 
                 <li class="menu-title">Data</li>
-                <li>
-                    <a href="chat.html" class="waves-effect">
-                        <i class="mdi mdi-chat-processing-outline"></i>
-                        <span class="badge rounded-pill bg-danger float-end">Hot</span>
-                        <span>Daftar lelang</span>
-                    </a>
-                </li>
 
                 <li>
-                    <a href="kanbanboard.html" class="waves-effect">
+                    <a href="<?= base_url('dashboard_user/history') ?>">
                         <i class="mdi mdi-billboard"></i>
                         <span class="badge rounded-pill bg-success float-end">New</span>
                         <span>History Lelang</span>
                     </a>
                 </li>
+
 
                 <li class="menu-title">Logout</li>
                 <li>
